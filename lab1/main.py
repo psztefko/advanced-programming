@@ -11,13 +11,20 @@ def task_b1(numbers):
 def task_b2(numbers):
     return [number*2 for number in numbers]
 
-def task_c(list):
-    for i in range(len(list)):
-        print(i) if i%2 == 0 else None
+def task_c():
+    print([element for element in range(10) if element%2 == 0])
+
+def task_d():
+    print([element for element in range(10) if int(element)%2 == 0])
 
 if __name__ == '__main__':
 
-    #task_a(['Bartek', 'Ania', 'Kuba', 'Kasia', 'Maciek'])
-    #task_b1([3, 2, 1, 5, 7])
-    #print(task_b2([3, 2, 1, 5, 7]))
-    task_c([element for element in range(10)])
+    print('task A: ')
+    task_a(['Bartek', 'Ania', 'Kuba', 'Kasia', 'Maciek'])
+    print('task B1 and B2: ')
+    task_b1([3, 2, 1, 5, 7])
+    print(task_b2([3, 2, 1, 5, 7]))
+    print('task C: ')
+    task_c()
+    print('task D: ')
+    task_d()
