@@ -13,9 +13,13 @@ def func_3(num: int) -> str:
 def func_4(num1: int, num2: int, num3: int) -> bool:
     return True if num1*num2 > num3 else False
 
+def func_5(list: list, num: int) -> bool:
+    return True if num in list else False
+
 if __name__ == '__main__':
 
     func_1('Adam', 'Kowalski')
     func_2(3, 4)
     func_3(6)
     func_4(1, 3, 5)
+    func_5([1, 2, 3, 4], 6)
