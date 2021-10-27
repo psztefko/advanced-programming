@@ -4,6 +4,8 @@ from order import Order
 from employee import Employee
 from book import Book
 from datetime import date
+from property import Property
+from house import House
 
 #task_1
 s1 = Student('John', 60)
@@ -26,3 +28,13 @@ e3 = Employee('Employee_name3', 'Employee_last_name3', date(2020, 1, 4), date(20
 
 o1 = Order(e1, s1, (b1, b2, b3), date(2021, 10, 26))
 o1 = Order(e3, s3, (b1, b4, b5), date(2021, 10, 27))
+
+
+# task_3
+
+p1 = Property(35, 2, 1800, 'Centrum')
+h1 = House(p1.area, p1.rooms, p1.price, p1.address, 200)
+
+print(h1.__str__())
+
+
