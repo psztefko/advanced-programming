@@ -2,55 +2,69 @@ from produkt import Produkt
 from magazyn import Magazyn
 from klientDetaliczny import KlientDetaliczny
 from klientBiznesowy import KlientBiznesowy
-import itertools
 
 
 class Zamowienie:
 
-    id_zamowienia = itertools.count().next
-    produkt: Produkt
-    magazyn: Magazyn
-    klientDetaliczny: KlientDetaliczny
-    klientBiznesowy: KlientBiznesowy
+    __produkt: Produkt
+    __magazyn: Magazyn
+    __klientDetaliczny: KlientDetaliczny
+    __klientBiznesowy: KlientBiznesowy
+    __produkty = []
+
 
     @property
     def id_zamowienia(self):
-        return self.id_zamowienia
+        return self.__id_zamowienia
 
     @property
-    def produkt(self):
-        return self.produkt
+    def produkty(self):
+        return self.__produkty
 
     @property
     def magazyn(self):
-        return self.magazyn
+        return self.__magazyn
 
     @property
     def klientDetaliczny(self):
-        return self.klientDetaliczny
+        return self.__klientDetaliczny
 
     @property
     def klientBiznesowy(self):
-        return self.klientBiznesowy
+        return self.__klientBiznesowy
 
-    @produkt.setter
-    def produkt(self, Produkt):
-        self.produkt = Produkt
+    @id_zamowienia.setter
+    def id_zamowienia(self, id_zamowienia):
+        self.__id_zamowienia = id_zamowienia
+
+    @produkty.setter
+    def produkty(self, Produkt):
+        self.__produkt = Produkt
+        self.__produkty.append(Produkt)
 
     @magazyn.setter
     def magazyn(self, Magazyn):
-        self.Magazyn = Magazyn
+        self.__magazyn = Magazyn
 
     @klientDetaliczny.setter
     def klientDetaliczny(self, KlientDetaliczny):
-        self.klientDetaliczny = KlientDetaliczny
+        self.__klientDetaliczny = KlientDetaliczny
 
     @klientBiznesowy.setter
     def klientBiznesowy(self, KlientBiznesowy):
-        self.klientBiznesowy = KlientBiznesowy
+        self.__klientBiznesowy = KlientBiznesowy
 
-    def wartosc_zamowienia(self):
-        pass
+    def wartosc_zamowienia(self) -> float:
+        razem = 0
+        for produkt in self.__produkty:
+            razem += produkt.cena
+        return "{:.2f}".format(razem)
 
-    def adres_klienta(self):
-        pass
+    def adres_klienta(self) -> str:
+        if self.__klientBiznesowy is not None:
+            return self.klientBiznesowy.lokalizacja
+        elif self.__klientDetaliczny is not None:
+            return self.__klientDetaliczny.miasto
+
+    def __str__(self):
+        return f'Nie zdazylem'
