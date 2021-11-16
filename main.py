@@ -1,11 +1,11 @@
-from student import Student
-from library import Library
-from order import Order
-from employee import Employee
-from book import Book
+from lab_5.student import Student
+from lab_5.library import Library
+from lab_5.order import Order
+from lab_5.employee import Employee
+from lab_5.book import Book
 from datetime import date
-from property import Property
-from house import House
+from lab_5.property import Property
+from lab_5.house import House
 
 # task_1
 s1 = Student('John', 60)
