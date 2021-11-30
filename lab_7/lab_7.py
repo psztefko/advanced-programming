@@ -12,28 +12,28 @@ app = Flask(__name__)
 api = Api(app)
 
 def get_movies() -> List[Movie]:
-    df = pd.read_csv("src/files/movies.csv")
+    df = pd.read_csv("lab_7/src/files/movies.csv")
     list_of_movies = []
     for index, row in df.iterrows():
         list_of_movies.append(Movie(row[0], row[1], row[2]))
     return list_of_movies
 
 def get_links() -> List[Link]:
-    df = pd.read_csv("src/files/links.csv")
+    df = pd.read_csv("lab_7/src/files/links.csv")
     list_of_links = []
     for index, row in df.iterrows():
         list_of_links.append(Link(row[0], row[1], row[2]))
     return list_of_links
 
 def get_rating() -> List[Rating]:
-    df = pd.read_csv("src/files/ratings.csv")
+    df = pd.read_csv("lab_7/src/files/ratings.csv")
     list_of_ratings = []
     for index, row in df.iterrows():
         list_of_ratings.append(Link(row[0], row[1], row[2], row[3]))
     return list_of_ratings
 
 def get_tags() -> List[Rating]:
-    df = pd.read_csv("src/files/ratings.csv")
+    df = pd.read_csv("lab_7/src/files/ratings.csv")
     list_of_ratings = []
     for index, row in df.iterrows():
         list_of_ratings.append(Link(row[0], row[1], row[2], row[3]))
