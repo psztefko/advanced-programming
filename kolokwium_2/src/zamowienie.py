@@ -51,4 +51,4 @@ class Zamowienie:
         return f'Numer recepty: {self._numer_recepty},\n' \
                f'Pacjent: \n{self._pacjent},\n' \
                f'Dietetyk: \n{self._dietetyk},\n' \
-               #f'Diety: \n'.join(str(dieta) for dieta in self.diety)
+               f'Diety: \n'.join(str(dieta) for dieta in self.diety)

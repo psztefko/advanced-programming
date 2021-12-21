@@ -1,6 +1,5 @@
-from kolokwium_2.src.dieta import Dieta
 from kolokwium_2.src.pacjent import Pacjent
-
+from kolokwium_2.src.dieta import Dieta
 
 class Dietetyk:
 
@@ -48,5 +47,5 @@ class Dietetyk:
     def __str__(self) -> str:
         return f'Imie: {self._imie},\n' \
                f'Nazwisko: {self._nazwisko},\n' \
-               f'Pacjent: {self._pacjent.imie},\n' \
-               f'Dieta: {self._dieta.nazwa},\n'
+               f'Pacjent: {self._pacjent},\n' \
+               f'Dieta: {self._dieta},\n'
