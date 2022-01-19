@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-ADWANCED PROGRAMING
-Aaaa very big change here :) :wq
-
-=======
->>>>>>> 43d041036d88f915e0455d1763e7e2ed39577496
-new text
