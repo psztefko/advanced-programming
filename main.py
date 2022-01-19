@@ -9,7 +9,7 @@ hog = cv.HOGDescriptor()
 hog.setSVMDetector(cv.HOGDescriptor_getDefaultPeopleDetector())
 
 # Reading the Image
-image = cv.imread('beatles.png')
+image = cv.imread('side.png')
 
 # Resizing the Image
 image = imutils.resize(image,width=min(400, image.shape[1]))
@@ -18,8 +18,12 @@ image = imutils.resize(image,width=min(400, image.shape[1]))
 (regions, _) = hog.detectMultiScale(image,winStride=(4, 4),padding=(4, 4),scale=1.05)
 
 # Drawing the regions in the Image
+counter = 0
 for (x, y, w, h) in regions:
     cv.rectangle(image, (x, y),(x + w, y + h),(0, 0, 255), 2)
+    counter += 1
+
+print(f'Na obrazku wykryto {counter} osób')
 
 # Showing the output Image
 cv.imshow('Image', image)
