@@ -4,7 +4,7 @@ from pathlib import Path
 import cv2 as cv
 import imutils
 
-
+# add text to image
 def write_text(image, counter, time):
     font = cv.FONT_HERSHEY_COMPLEX
 
@@ -22,30 +22,33 @@ def write_text(image, counter, time):
 hog = cv.HOGDescriptor()
 hog.setSVMDetector(cv.HOGDescriptor_getDefaultPeopleDetector())
 
+# creating list of image paths in given directory
 images = Path('images').rglob('*.png')
 for path in images:
 
-    # Reading the Image
+    # reading the image
     image = cv.imread(str(path))
 
-    # Resizing the Image
+    # resizing the image
     image = imutils.resize(image, width=min(400, image.shape[1]))
 
+    # start counting time
     timepoint = datetime.now()
 
-    # Detecting all the regions in the image that has people inside it
+    # detecting all the people on the picture
     (regions, _) = hog.detectMultiScale(image,
                                         winStride=(4, 4), padding=(4, 4), scale=1.05)
 
+    # stop counting time
     time = float("{:.2f}".format((datetime.now() - timepoint).total_seconds()))
 
-    # Drawing rectangles on the image
+    # drawing rectangles on the image
     counter = 0
     for (x, y, w, h) in regions:
         cv.rectangle(image, (x, y), (x + w, y + h), (0, 0, 255), 2)
         counter += 1
 
-    # Show output image
+    # show output image
     cv.imshow('Image', write_text(image, counter, time))
     cv.waitKey(0)
     cv.destroyAllWindows()
