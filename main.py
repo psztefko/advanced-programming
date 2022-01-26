@@ -18,7 +18,7 @@ def write_text(image, counter, time):
     return image
 
 
-# Initializing the HOG person detector
+# initializing the HOG person detector
 hog = cv.HOGDescriptor()
 hog.setSVMDetector(cv.HOGDescriptor_getDefaultPeopleDetector())
 
